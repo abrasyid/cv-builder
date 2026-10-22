@@ -1,6 +1,6 @@
 function Feedback() {
     return (
-        <section className="mt-60 justify-items-center px-36">
+        <section id="feedback" className="mt-60 scroll-mt-30 justify-items-center px-36">
             <h2 className="font-primary text-primary text-4xl font-semibold tracking-tight">
                 Sampaikan feedback anda!
             </h2>
@@ -43,19 +43,22 @@ function Feedback() {
                 </div>
                 <div className="mt-5 space-y-2">
                     <label
-                        htmlFor="feedback"
+                        htmlFor="feedbacks"
                         className="font-primary text-primary block text-sm font-medium"
                     >
                         Feedback
                     </label>
                     <textarea
-                        name="feedback"
-                        id="feedback"
+                        name="feedbacks"
+                        id="feedbacks"
                         placeholder="Berikan saran, masukan, ataupun temuan bug.."
                         className="font-primary text-primary placeholder:text-primary/45 h-40 w-full rounded-xl border border-[#E7ECF2] bg-[#FAFBFD] px-3.75 py-2.75 transition-all duration-200 focus:border-[#0B60EA] focus:ring-3 focus:ring-[#0B60EA]/15 focus:outline-none"
                     ></textarea>
                 </div>
-                <button className="font-primary bg-primary group mt-8 inline-flex cursor-pointer items-center gap-2.5 rounded-lg px-6.5 py-3 text-base text-white transition-all duration-300 hover:bg-[#292E33] hover:shadow-[0_4px_10px_rgba(18,24,29,0.15)]">
+                <button
+                    type="submit"
+                    className="font-primary bg-primary group mt-8 inline-flex cursor-pointer items-center gap-2.5 rounded-lg px-6.5 py-3 text-base text-white transition-all duration-300 hover:bg-[#292E33] hover:shadow-[0_4px_10px_rgba(18,24,29,0.15)]"
+                >
                     Kirim
                     <span>
                         <svg

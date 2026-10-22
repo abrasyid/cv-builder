@@ -1,6 +1,35 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function Navbar() {
+    const [activeSection, setActiveSection] = useState("home");
+
+    useEffect(() => {
+        const sections = ["home", "steps", "features"]
+            .map((id) => document.getElementById(id))
+            .filter(Boolean);
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visibleSections = entries
+                    .filter((entry) => entry.isIntersecting)
+                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+                if (visibleSections.length > 0) {
+                    setActiveSection(visibleSections[0].target.id);
+                }
+            },
+            {
+                rootMargin: "-20% 0px -60% 0px",
+                threshold: 0,
+            },
+        );
+
+        sections.forEach((section) => observer.observe(section));
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <header className="sticky top-0 z-50 w-full border-b border-[#E7ECF2] bg-white/80 px-16 py-4.5 backdrop-blur-md">
             <div className="flex items-center justify-between">
@@ -18,7 +47,8 @@ function Navbar() {
                             <li>
                                 <a
                                     href="#home"
-                                    className="font-primary text-[15px] font-medium text-[#0B60EA] transition-colors duration-200 hover:text-[#0B60EA]"
+                                    onClick={() => setActiveSection("home")}
+                                    className={`font-primary text-[15px] font-medium transition-colors duration-200 ${activeSection === "home" ? "text-[#0B60EA]" : "text-[#65758B] hover:text-[#0B60EA]"}`}
                                 >
                                     Home
                                 </a>
@@ -26,7 +56,8 @@ function Navbar() {
                             <li>
                                 <a
                                     href="#steps"
-                                    className="font-primary text-[15px] font-medium text-[#65758B] transition-colors duration-200 hover:text-[#0B60EA]"
+                                    onClick={() => setActiveSection("steps")}
+                                    className={`font-primary text-[15px] font-medium transition-colors duration-200 ${activeSection === "steps" ? "text-[#0B60EA]" : "text-[#65758B] hover:text-[#0B60EA]"}`}
                                 >
                                     Steps
                                 </a>
@@ -34,7 +65,8 @@ function Navbar() {
                             <li>
                                 <a
                                     href="#features"
-                                    className="font-primary text-[15px] font-medium text-[#65758B] transition-colors duration-200 hover:text-[#0B60EA]"
+                                    onClick={() => setActiveSection("features")}
+                                    className={`font-primary text-[15px] font-medium transition-colors duration-200 ${activeSection === "features" ? "text-[#0B60EA]" : "text-[#65758B] hover:text-[#0B60EA]"}`}
                                 >
                                     Features
                                 </a>
@@ -48,7 +80,7 @@ function Navbar() {
                         >
                             Create CV
                         </Link>
-                        <div className="flex items-center">
+                        {/* <div className="flex items-center">
                             <button className="cursor-pointer">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +96,7 @@ function Navbar() {
                                     />
                                 </svg>
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

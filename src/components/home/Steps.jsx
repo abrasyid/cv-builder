@@ -1,13 +1,21 @@
 function Steps() {
     return (
-        <section id="steps" className="mt-50 space-y-15 px-36 scroll-mt-40">
+        <section id="steps" className="mt-50 scroll-mt-40 space-y-15 px-36">
             <div className="justify-items-center">
-                <h2 className="font-primary text-primary text-4xl font-semibold tracking-tight">Buat CV anda dalam 3 langkah.</h2>
+                <h2 className="font-primary text-primary text-4xl font-semibold tracking-tight">
+                    Buat CV anda dalam 3 langkah.
+                </h2>
             </div>
             <div className="grid grid-cols-3 gap-x-6">
-                <div className="px-6 py-7 border border-[#E7ECF2] rounded-2xl group transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(18,24,29,0.08)]">
-                    <div className="bg-blue-50 group-hover:bg-blue-600 transition-colors duration-300 inline-block px-3 py-3 rounded-xl">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="text-blue-600 group-hover:text-white transition-colors duration-300" width="24" height="24" viewBox="0 0 24 24">
+                <div className="group rounded-2xl border border-[#E7ECF2] px-6 py-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(18,24,29,0.08)]">
+                    <div className="inline-block rounded-xl bg-blue-50 px-3 py-3 transition-colors duration-300 group-hover:bg-blue-600">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="text-blue-600 transition-colors duration-300 group-hover:text-white"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                        >
                             <path
                                 fill="currentColor"
                                 fill-rule="evenodd"
@@ -16,12 +24,23 @@ function Steps() {
                             />
                         </svg>
                     </div>
-                    <h3 className="mt-8 font-primary text-primary text-[17px] font-semibold">Lengkapi Data Anda</h3>
-                    <p className="mt-2.5 font-primary text-[#55636B] text-[15px] leading-6.25">Isi informasi pribadi, pendidikan, pengalaman, dan keahlian yang ingin ditampilkan pada CV.</p>
+                    <h3 className="font-primary text-primary mt-8 text-[17px] font-semibold">
+                        Lengkapi Data Anda
+                    </h3>
+                    <p className="font-primary mt-2.5 text-[15px] leading-6.25 text-[#55636B]">
+                        Isi informasi pribadi, pendidikan, pengalaman, dan keahlian yang ingin
+                        ditampilkan pada CV.
+                    </p>
                 </div>
-                <div className="px-6 py-7 border border-[#E7ECF2] rounded-2xl group transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(18,24,29,0.08)]">
-                    <div className="bg-blue-50 group-hover:bg-blue-600 transition-colors duration-300 inline-block px-3 py-3 rounded-xl">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="text-blue-600 group-hover:text-white transition-colors duration-300" width="24" height="24" viewBox="0 0 24 24">
+                <div className="group rounded-2xl border border-[#E7ECF2] px-6 py-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(18,24,29,0.08)]">
+                    <div className="inline-block rounded-xl bg-blue-50 px-3 py-3 transition-colors duration-300 group-hover:bg-blue-600">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="text-blue-600 transition-colors duration-300 group-hover:text-white"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                        >
                             <path
                                 fill="currentColor"
                                 fill-rule="evenodd"
@@ -30,12 +49,23 @@ function Steps() {
                             />
                         </svg>
                     </div>
-                    <h3 className="mt-8 font-primary text-primary text-[17px] font-semibold">Tinjau Setiap Bagian</h3>
-                    <p className="mt-2.5 font-primary text-[#55636B] text-[15px] leading-6.25">Periksa kembali setiap informasi untuk memastikan data yang tercantum sudah lengkap dan sesuai.</p>
+                    <h3 className="font-primary text-primary mt-8 text-[17px] font-semibold">
+                        Tinjau Setiap Bagian
+                    </h3>
+                    <p className="font-primary mt-2.5 text-[15px] leading-6.25 text-[#55636B]">
+                        Periksa kembali setiap informasi untuk memastikan data yang tercantum sudah
+                        lengkap dan sesuai.
+                    </p>
                 </div>
-                <div className="px-6 py-7 border border-[#E7ECF2] rounded-2xl group transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(18,24,29,0.08)]">
-                    <div className="bg-blue-50 group-hover:bg-blue-600 transition-colors duration-300 inline-block px-3 py-3 rounded-xl">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="text-blue-600 group-hover:text-white transition-colors duration-300" width="24" height="24" viewBox="0 0 24 24">
+                <div className="group rounded-2xl border border-[#E7ECF2] px-6 py-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(18,24,29,0.08)]">
+                    <div className="inline-block rounded-xl bg-blue-50 px-3 py-3 transition-colors duration-300 group-hover:bg-blue-600">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="text-blue-600 transition-colors duration-300 group-hover:text-white"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                        >
                             <path
                                 fill="currentColor"
                                 fill-rule="evenodd"
@@ -44,8 +74,13 @@ function Steps() {
                             />
                         </svg>
                     </div>
-                    <h3 className="mt-8 font-primary text-primary text-[17px] font-semibold">Unduh Curriculum Vitae</h3>
-                    <p className="mt-2.5 font-primary text-[#55636B] text-[15px] leading-6.25">Setelah data lengkap, unduh CV profesional anda dalam format pdf dan gunakan untuk kebutuhan karier.</p>
+                    <h3 className="font-primary text-primary mt-8 text-[17px] font-semibold">
+                        Unduh Curriculum Vitae
+                    </h3>
+                    <p className="font-primary mt-2.5 text-[15px] leading-6.25 text-[#55636B]">
+                        Setelah data lengkap, unduh CV profesional anda dalam format pdf dan gunakan
+                        untuk kebutuhan karier.
+                    </p>
                 </div>
             </div>
         </section>
