@@ -1,16 +1,20 @@
-# React + Vite
+# 📋 CV Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+<p align="center">
+    <img src="public/banner.png" alt="" width="600">
+</p>
 
-Currently, two official plugins are available:
+## Tentang Sistem
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+CV Builder adalah website untuk menghasilkan CV tanpa proses rumit. Informasi yang anda berikan bersifat pribadi dan tidak disimpan. Wujudkan CV anda dengan mengisi data dan unduh dengan pdf.
 
-## React Compiler
+- CV yang dihasilkan ATS Friendly sehingga dapat dikenali dengan baik.
+- Proses membuat CV hanya berjalan di sisi browser pengguna.
+- Informasi yang diberikan tidak disimpan di server sehingga data tetap berada di perangkat anda.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Kontak
 
-## Expanding the Oxlint configuration
+Jika anda memiliki pertanyaan atau masukan mengenai sistem tersebut, saya dapat dihubungi melalui:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- 📩Email: abdulrazid608@gmail.com
+- 📌Linkedin: https://www.linkedin.com/in/abdulrasyid7
