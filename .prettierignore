@@ -1,0 +1,8 @@
+node_modules
+dist
+
+public/fonts
+src/assets/fonts
+
+*.min.js
+*.min.css

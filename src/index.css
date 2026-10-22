@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+.print-only {
+    display: none;
+}
+
+.cv-page-guide {
+    position: relative;
+    isolation: isolate;
+}
+
+.cv-page-guide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent calc(297mm - 8mm - 1px),
+        #cbd5e1 calc(297mm - 8mm - 1px),
+        #cbd5e1 calc(297mm - 8mm)
+    );
+
+    background-size: 100% 297mm;
+    background-repeat: repeat-y;
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: 9mm 9mm 8mm;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    body * {
+        visibility: hidden;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    .print-area,
+    .print-area * {
+        visibility: visible;
+    }
+
+    .print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 0 !important;
+    }
+
+    .no-print {
+        display: none;
+    }
+}
+
+@theme {
+    --font-primary: "Inter", sans-serif;
+    --font-arial: "Arial", sans-serif;
+    --color-primary: #12181d;
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 200 800;
+    font-display: swap;
+    src: url("/assets/fonts/Inter-VariableFont.woff2");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 200 800;
+    font-display: swap;
+    src: url("/assets/fonts/Inter-Italic-VariableFont.woff2");
+}
+
+@font-face {
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/assets/fonts/Arial-Regular.woff2");
+}
+
+@font-face {
+    font-family: "Arial";
+    font-style: italic;
+    font-width: 400;
+    font-display: swap;
+    src: url("/assets/fonts/Arial-Italic.woff2");
+}
+
+@font-face {
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/assets/fonts/Arial-Bold.woff2");
+}
+
+html {
+    scroll-behavior: smooth;
+}
