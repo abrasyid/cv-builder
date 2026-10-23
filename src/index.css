@@ -84,7 +84,7 @@
     font-style: normal;
     font-weight: 200 800;
     font-display: swap;
-    src: url("/assets/fonts/Inter-VariableFont.woff2");
+    src: url("./assets/fonts/Inter-VariableFont.woff2") format("woff2");
 }
 
 @font-face {
@@ -92,7 +92,7 @@
     font-style: italic;
     font-weight: 200 800;
     font-display: swap;
-    src: url("/assets/fonts/Inter-Italic-VariableFont.woff2");
+    src: url("./assets/fonts/Inter-Italic-VariableFont.woff2") format("woff2");
 }
 
 @font-face {
@@ -100,7 +100,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url("/assets/fonts/Arial-Regular.woff2");
+    src: url("./assets/fonts/Arial-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -108,7 +108,7 @@
     font-style: italic;
     font-width: 400;
     font-display: swap;
-    src: url("/assets/fonts/Arial-Italic.woff2");
+    src: url("./assets/fonts/Arial-Italic.woff2") format("woff2");
 }
 
 @font-face {
@@ -116,7 +116,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url("/assets/fonts/Arial-Bold.woff2");
+    src: url("./assets/fonts/Arial-Bold.woff2") format("woff2");
 }
 
 html {
