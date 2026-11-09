@@ -1,4 +1,47 @@
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+
+const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 function Feedback() {
+    const [isSending, setIsSending] = useState(false);
+    const [status, setStatus] = useState(null);
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        setStatus(null);
+
+        if (!serviceId || !templateId || !publicKey) {
+            setStatus({
+                type: "error",
+                message: "Form feedback belum dikonfigurasi. Silakan coba lagi nanti.",
+            });
+            return;
+        }
+
+        const form = event.currentTarget;
+        setIsSending(true);
+
+        try {
+            await emailjs.sendForm(serviceId, templateId, form, { publicKey });
+            form.reset();
+            setStatus({
+                type: "success",
+                message: "Terima kasih! Feedback anda berhasil dikirim.",
+            });
+        } catch (error) {
+            console.error("EmailJS feedback submission failed:", error);
+            setStatus({
+                type: "error",
+                message: "Feedback gagal dikirim. Silakan coba lagi beberapa saat.",
+            });
+        } finally {
+            setIsSending(false);
+        }
+    }
+
     return (
         <section id="feedback" className="mt-60 scroll-mt-30 justify-items-center px-36">
             <h2 className="font-primary text-primary text-4xl font-semibold tracking-tight">
@@ -8,7 +51,10 @@ function Feedback() {
                 Tulis saran dan masukan ataupun temuan bug untuk membantu meningkatkan penggunaan CV
                 Builder.
             </p>
-            <div className="mt-16 w-190 rounded-3xl border border-[#E7ECF2] px-8 py-8 shadow-[0_8px_24px_rgba(18,24,29,0.08)]">
+            <form
+                onSubmit={handleSubmit}
+                className="mt-16 w-190 rounded-3xl border border-[#E7ECF2] px-8 py-8 shadow-[0_8px_24px_rgba(18,24,29,0.08)]"
+            >
                 <div className="grid grid-cols-2 space-x-5">
                     <div className="space-y-2">
                         <label
@@ -22,6 +68,9 @@ function Feedback() {
                             id="name"
                             name="name"
                             placeholder="Your name"
+                            autoComplete="name"
+                            maxLength={100}
+                            required
                             className="font-primary text-primary placeholder:text-primary/45 w-full rounded-xl border border-[#E7ECF2] bg-[#FAFBFD] px-3.75 py-2.75 transition-all duration-200 focus:border-[#0B60EA] focus:ring-3 focus:ring-[#0B60EA]/15 focus:outline-none"
                         />
                     </div>
@@ -33,10 +82,13 @@ function Feedback() {
                             Email
                         </label>
                         <input
-                            type="text"
+                            type="email"
                             id="email"
                             name="email"
                             placeholder="example@gmail.com"
+                            autoComplete="email"
+                            maxLength={254}
+                            required
                             className="font-primary text-primary placeholder:text-primary/45 w-full rounded-xl border border-[#E7ECF2] bg-[#FAFBFD] px-3.75 py-2.75 transition-all duration-200 focus:border-[#0B60EA] focus:ring-3 focus:ring-[#0B60EA]/15 focus:outline-none"
                         />
                     </div>
@@ -52,14 +104,27 @@ function Feedback() {
                         name="feedbacks"
                         id="feedbacks"
                         placeholder="Berikan saran, masukan, ataupun temuan bug.."
+                        maxLength={3000}
+                        required
                         className="font-primary text-primary placeholder:text-primary/45 h-40 w-full rounded-xl border border-[#E7ECF2] bg-[#FAFBFD] px-3.75 py-2.75 transition-all duration-200 focus:border-[#0B60EA] focus:ring-3 focus:ring-[#0B60EA]/15 focus:outline-none"
                     ></textarea>
                 </div>
+                {status && (
+                    <p
+                        role={status.type === "error" ? "alert" : "status"}
+                        className={`font-primary mt-2 text-sm ${
+                            status.type === "error" ? "text-red-700" : "text-green-700"
+                        }`}
+                    >
+                        {status.message}
+                    </p>
+                )}
                 <button
                     type="submit"
-                    className="font-primary bg-primary group mt-8 inline-flex cursor-pointer items-center gap-2.5 rounded-lg px-6.5 py-3 text-base text-white transition-all duration-300 hover:bg-[#292E33] hover:shadow-[0_4px_10px_rgba(18,24,29,0.15)]"
+                    disabled={isSending}
+                    className="font-primary bg-primary group mt-8 inline-flex cursor-pointer items-center gap-2.5 rounded-lg px-6 py-3 text-base text-white transition-all duration-300 hover:bg-[#292E33] hover:shadow-[0_4px_10px_rgba(18,24,29,0.15)] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                    Kirim
+                    {isSending ? "Mengirim..." : "Kirim"}
                     <span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +139,7 @@ function Feedback() {
                         </svg>
                     </span>
                 </button>
-            </div>
+            </form>
         </section>
     );
 }

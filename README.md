@@ -10,7 +10,6 @@ CV Builder adalah website untuk menghasilkan CV tanpa proses rumit. Informasi ya
 
 - CV yang dihasilkan ATS Friendly sehingga dapat dikenali dengan baik.
 - Proses membuat CV hanya berjalan di sisi browser pengguna.
-- Informasi yang diberikan tidak disimpan di server sehingga data tetap berada di perangkat anda.
 
 ## Kontak
 
