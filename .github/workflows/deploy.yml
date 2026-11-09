@@ -34,11 +34,17 @@ jobs:
             - name: Install dependencies
               run: npm ci
 
-            - name: Load EmailJS configuration
-              run: cp .env.example .env
-
             - name: Build
-              run: npm run build
+              run: |
+                  if [ -z "$VITE_EMAILJS_SERVICE_ID" ] || [ -z "$VITE_EMAILJS_TEMPLATE_ID" ] || [ -z "$VITE_EMAILJS_PUBLIC_KEY" ]; then
+                    echo "::error::Set EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, and EMAILJS_PUBLIC_KEY in GitHub Actions Variables."
+                    exit 1
+                  fi
+                  npm run build
+              env:
+                  VITE_EMAILJS_SERVICE_ID: ${{ vars.EMAILJS_SERVICE_ID }}
+                  VITE_EMAILJS_TEMPLATE_ID: ${{ vars.EMAILJS_TEMPLATE_ID }}
+                  VITE_EMAILJS_PUBLIC_KEY: ${{ vars.EMAILJS_PUBLIC_KEY }}
 
             - name: Setup Pages
               uses: actions/configure-pages@v5
