@@ -80,7 +80,7 @@ function Navbar() {
                         >
                             Create CV
                         </Link>
-                        {/* <div className="flex items-center">
+                        <div className="flex items-center">
                             <button className="cursor-pointer">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ function Navbar() {
                                     />
                                 </svg>
                             </button>
-                        </div> */}
+                        </div>
                     </div>
                 </div>
             </div>
