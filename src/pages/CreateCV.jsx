@@ -146,7 +146,7 @@ function CreateCV() {
     return (
         <>
             <Navbar />
-            <main className="flex h-[calc(100dvh-72px)] overflow-hidden bg-slate-50">
+            <main className="flex min-h-[calc(100dvh-72px)] flex-col bg-slate-50 lg:h-[calc(100dvh-72px)] lg:min-h-0 lg:flex-row lg:overflow-hidden">
                 <Form
                     cvData={cvData}
                     setCvData={setCvData}

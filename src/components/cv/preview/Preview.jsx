@@ -10,21 +10,28 @@ function Preview({ cvData, sectionOrder }) {
 
     // Memperbarui tinggi preview
     const previewRef = useRef(null);
+    const previewContainerRef = useRef(null);
     const [previewHeight, setPreviewHeight] = useState(0);
+    const [previewScale, setPreviewScale] = useState(0.8);
 
     useLayoutEffect(() => {
         const element = previewRef.current;
+        const container = previewContainerRef.current;
+        const page = element?.firstElementChild;
 
-        if (!element) return;
+        if (!element || !container || !page) return;
 
-        const updateHeight = () => {
-            setPreviewHeight(element.offsetHeight * 0.8);
+        const updateLayout = () => {
+            const scale = Math.min(0.8, container.clientWidth / page.offsetWidth);
+            setPreviewScale(scale);
+            setPreviewHeight(element.offsetHeight * scale);
         };
 
-        updateHeight();
+        updateLayout();
 
-        const observer = new ResizeObserver(updateHeight);
-        observer.observe(element);
+        const observer = new ResizeObserver(updateLayout);
+        observer.observe(container);
+        observer.observe(page);
 
         return () => observer.disconnect();
     }, [cvData]);
@@ -32,11 +39,19 @@ function Preview({ cvData, sectionOrder }) {
     return (
         <section
             id="preview"
-            className="min-h-0 w-[60%] scrollbar-thin justify-items-center overflow-y-auto py-20"
+            className="flex w-full flex-col items-center overflow-x-hidden px-4 py-10 lg:min-h-0 lg:w-[60%] lg:overflow-y-auto lg:px-0 lg:py-20"
         >
             {/* Preview */}
-            <div className="no-print" style={{ height: previewHeight || undefined }}>
-                <div ref={previewRef} className="origin-top scale-[0.8]">
+            <div
+                ref={previewContainerRef}
+                className="no-print flex w-full flex-col items-center"
+                style={{ height: previewHeight || undefined }}
+            >
+                <div
+                    ref={previewRef}
+                    className="origin-top"
+                    style={{ transform: `scale(${previewScale})` }}
+                >
                     <div className="cv-page-guide min-h-[280mm] w-196 rounded-xl border border-[#E7ECF2] bg-white px-8 pt-10 pb-8 shadow-[0_8px_24px_rgba(18,24,29,0.08)]">
                         <FormatCV cvData={cvData} sectionOrder={sectionOrder} />
                     </div>
@@ -46,11 +61,11 @@ function Preview({ cvData, sectionOrder }) {
             <div className="print-area print-only">
                 <FormatCV cvData={cvData} sectionOrder={sectionOrder} />
             </div>
-            <div className="mt-8 flex space-x-4">
+            <div className="mt-8 flex w-full max-w-196 flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
                 <button
                     type="button"
                     onClick={handlePrint}
-                    className="font-primary bg-primary group inline-flex cursor-pointer items-center gap-2 rounded-3xl px-7 py-3 text-[15px] text-white transition-all duration-300 hover:bg-[#292E33] hover:shadow-[0_4px_10px_rgba(18,24,29,0.15)]"
+                    className="font-primary bg-primary group inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-3xl px-7 py-3 text-[15px] text-white transition-all duration-300 hover:bg-[#292E33] hover:shadow-[0_4px_10px_rgba(18,24,29,0.15)] sm:w-auto"
                 >
                     Preview
                     <span>
@@ -70,7 +85,7 @@ function Preview({ cvData, sectionOrder }) {
                 <button
                     type="button"
                     onClick={handlePrint}
-                    className="font-primary group inline-flex cursor-pointer items-center gap-2 rounded-3xl bg-red-700 px-7 py-3 text-[15px] text-white transition-all duration-300 hover:bg-[#C54C46] hover:shadow-[0_4px_10px_rgba(18,24,29,0.15)]"
+                    className="font-primary group inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-3xl bg-red-700 px-7 py-3 text-[15px] text-white transition-all duration-300 hover:bg-[#C54C46] hover:shadow-[0_4px_10px_rgba(18,24,29,0.15)] sm:w-auto"
                 >
                     Unduh PDF
                     <span>

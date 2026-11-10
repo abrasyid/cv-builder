@@ -1,13 +1,16 @@
 function Steps() {
     return (
-        <section id="steps" className="mt-50 scroll-mt-40 space-y-15 px-36">
-            <div className="justify-items-center">
-                <h2 className="font-primary text-primary text-4xl font-semibold tracking-tight">
+        <section
+            id="steps"
+            className="mt-24 scroll-mt-24 space-y-8 px-5 sm:mt-32 sm:px-8 sm:space-y-10 lg:mt-50 lg:scroll-mt-40 lg:space-y-15 lg:px-16 xl:px-36"
+        >
+            <div className="justify-items-center text-center">
+                <h2 className="font-primary text-primary text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
                     Buat CV anda dalam 3 langkah.
                 </h2>
             </div>
-            <div className="grid grid-cols-3 gap-x-6">
-                <div className="group rounded-2xl border border-[#E7ECF2] px-6 py-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(18,24,29,0.08)]">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+                <div className="group rounded-2xl border border-[#E7ECF2] px-5 py-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(18,24,29,0.08)] sm:px-6 sm:py-7">
                     <div className="inline-block rounded-xl bg-blue-50 px-3 py-3 transition-colors duration-300 group-hover:bg-blue-600">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +35,7 @@ function Steps() {
                         ditampilkan pada CV.
                     </p>
                 </div>
-                <div className="group rounded-2xl border border-[#E7ECF2] px-6 py-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(18,24,29,0.08)]">
+                <div className="group rounded-2xl border border-[#E7ECF2] px-5 py-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(18,24,29,0.08)] sm:px-6 sm:py-7">
                     <div className="inline-block rounded-xl bg-blue-50 px-3 py-3 transition-colors duration-300 group-hover:bg-blue-600">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +60,7 @@ function Steps() {
                         lengkap dan sesuai.
                     </p>
                 </div>
-                <div className="group rounded-2xl border border-[#E7ECF2] px-6 py-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(18,24,29,0.08)]">
+                <div className="group rounded-2xl border border-[#E7ECF2] px-5 py-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(18,24,29,0.08)] sm:px-6 sm:py-7">
                     <div className="inline-block rounded-xl bg-blue-50 px-3 py-3 transition-colors duration-300 group-hover:bg-blue-600">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

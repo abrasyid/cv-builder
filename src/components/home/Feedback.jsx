@@ -43,19 +43,22 @@ function Feedback() {
     }
 
     return (
-        <section id="feedback" className="mt-60 scroll-mt-30 justify-items-center px-36">
-            <h2 className="font-primary text-primary text-4xl font-semibold tracking-tight">
+        <section
+            id="feedback"
+            className="mt-24 scroll-mt-24 justify-items-center px-5 sm:mt-32 sm:px-8 lg:mt-60 lg:scroll-mt-30 lg:px-16 xl:px-36"
+        >
+            <h2 className="font-primary text-primary text-center text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
                 Sampaikan feedback anda!
             </h2>
-            <p className="font-primary mt-6 w-120 text-center text-base leading-7 text-[#55636B]">
+            <p className="font-primary mt-4 w-full max-w-120 text-center text-base leading-7 text-[#55636B] sm:mt-6">
                 Tulis saran dan masukan ataupun temuan bug untuk membantu meningkatkan penggunaan CV
                 Builder.
             </p>
             <form
                 onSubmit={handleSubmit}
-                className="mt-16 w-190 rounded-3xl border border-[#E7ECF2] px-8 py-8 shadow-[0_8px_24px_rgba(18,24,29,0.08)]"
+                className="mt-10 w-full max-w-190 rounded-3xl border border-[#E7ECF2] px-5 py-6 shadow-[0_8px_24px_rgba(18,24,29,0.08)] sm:mt-12 sm:px-8 sm:py-8 lg:mt-16"
             >
-                <div className="grid grid-cols-2 space-x-5">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                     <div className="space-y-2">
                         <label
                             htmlFor="name"
@@ -122,7 +125,7 @@ function Feedback() {
                 <button
                     type="submit"
                     disabled={isSending}
-                    className="font-primary bg-primary group mt-8 inline-flex cursor-pointer items-center gap-2.5 rounded-lg px-6 py-3 text-base text-white transition-all duration-300 hover:bg-[#292E33] hover:shadow-[0_4px_10px_rgba(18,24,29,0.15)] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="font-primary bg-primary group mt-8 inline-flex w-full cursor-pointer items-center justify-center gap-2.5 rounded-lg px-6 py-3 text-base text-white transition-all duration-300 hover:bg-[#292E33] hover:shadow-[0_4px_10px_rgba(18,24,29,0.15)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
                     {isSending ? "Mengirim..." : "Kirim"}
                     <span>
