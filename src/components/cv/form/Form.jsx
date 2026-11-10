@@ -138,7 +138,7 @@ function Form({ cvData, setCvData, sectionOrder, setSectionOrder }) {
     return (
         <section
             id="form"
-            className="min-h-0 w-[40%] scrollbar-thin space-y-3 overflow-y-auto px-6 py-7"
+            className="w-full space-y-3 px-4 py-5 sm:px-6 sm:py-7 lg:min-h-0 lg:w-[40%] lg:overflow-y-auto"
         >
             <Profile cvData={cvData} setCvData={setCvData} />
 

@@ -2,16 +2,16 @@ function Features() {
     return (
         <section
             id="features"
-            className="mt-40 scroll-mt-10 space-y-15 border-b border-[#E7ECF2] bg-[#FAFBFD] px-36 pt-30 pb-40"
+            className="mt-24 scroll-mt-24 space-y-8 border-b border-[#E7ECF2] bg-[#FAFBFD] px-5 pt-16 pb-20 sm:mt-32 sm:space-y-10 sm:px-8 sm:pt-20 sm:pb-24 lg:mt-40 lg:scroll-mt-10 lg:space-y-15 lg:px-16 lg:pt-30 lg:pb-40 xl:px-36"
         >
             <div className="justify-items-start">
-                <h2 className="font-primary text-primary text-4xl font-semibold tracking-tight">
+                <h2 className="font-primary text-primary text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
                     Apa yang dilakukan CV Builder?
                 </h2>
             </div>
-            <div className="grid grid-cols-3 gap-x-12">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-12">
                 <div>
-                    <h2 className="font-primary bg-[linear-gradient(to_bottom,#0B60EA_0%,#6C9FF0_60%,#D0E4FF_100%)] bg-clip-text text-[52px] font-bold tracking-tight text-transparent">
+                    <h2 className="font-primary bg-[linear-gradient(to_bottom,#0B60EA_0%,#6C9FF0_60%,#D0E4FF_100%)] bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl lg:text-[52px]">
                         01
                     </h2>
                     <h3 className="font-primary text-primary mt-6 text-[17px] font-semibold">
@@ -23,7 +23,7 @@ function Features() {
                     </p>
                 </div>
                 <div>
-                    <h2 className="font-primary bg-[linear-gradient(to_bottom,#0B60EA_0%,#6C9FF0_60%,#D0E4FF_100%)] bg-clip-text text-[52px] font-bold tracking-tight text-transparent">
+                    <h2 className="font-primary bg-[linear-gradient(to_bottom,#0B60EA_0%,#6C9FF0_60%,#D0E4FF_100%)] bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl lg:text-[52px]">
                         02
                     </h2>
                     <h3 className="font-primary text-primary mt-6 text-[17px] font-semibold">
@@ -35,7 +35,7 @@ function Features() {
                     </p>
                 </div>
                 <div>
-                    <h2 className="font-primary bg-[linear-gradient(to_bottom,#0B60EA_0%,#6C9FF0_60%,#D0E4FF_100%)] bg-clip-text text-[52px] font-bold tracking-tight text-transparent">
+                    <h2 className="font-primary bg-[linear-gradient(to_bottom,#0B60EA_0%,#6C9FF0_60%,#D0E4FF_100%)] bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl lg:text-[52px]">
                         03
                     </h2>
                     <h3 className="font-primary text-primary mt-6 text-[17px] font-semibold">

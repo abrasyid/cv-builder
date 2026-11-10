@@ -3,6 +3,13 @@ import { useEffect, useState } from "react";
 
 function Navbar() {
     const [activeSection, setActiveSection] = useState("home");
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const navigationItems = [
+        { id: "home", label: "Home" },
+        { id: "steps", label: "Steps" },
+        { id: "features", label: "Features" },
+    ];
 
     useEffect(() => {
         const sections = ["home", "steps", "features"]
@@ -31,7 +38,10 @@ function Navbar() {
     }, []);
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-[#E7ECF2] bg-white/80 px-16 py-4.5 backdrop-blur-md">
+        <header
+            className="sticky top-0 z-50 w-full border-b border-[#E7ECF2] bg-white/80 px-4 py-4.5 backdrop-blur-md sm:px-6 md:px-16"
+            id="navbar"
+        >
             <div className="flex items-center justify-between">
                 <div>
                     <Link
@@ -41,36 +51,20 @@ function Navbar() {
                         CV Builder
                     </Link>
                 </div>
-                <div className="flex items-center space-x-8">
+                <div className="hidden items-center space-x-8 md:flex">
                     <nav>
                         <ul className="flex space-x-9">
-                            <li>
-                                <a
-                                    href="#home"
-                                    onClick={() => setActiveSection("home")}
-                                    className={`font-primary text-[15px] font-medium transition-colors duration-200 ${activeSection === "home" ? "text-[#0B60EA]" : "text-[#65758B] hover:text-[#0B60EA]"}`}
-                                >
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#steps"
-                                    onClick={() => setActiveSection("steps")}
-                                    className={`font-primary text-[15px] font-medium transition-colors duration-200 ${activeSection === "steps" ? "text-[#0B60EA]" : "text-[#65758B] hover:text-[#0B60EA]"}`}
-                                >
-                                    Steps
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#features"
-                                    onClick={() => setActiveSection("features")}
-                                    className={`font-primary text-[15px] font-medium transition-colors duration-200 ${activeSection === "features" ? "text-[#0B60EA]" : "text-[#65758B] hover:text-[#0B60EA]"}`}
-                                >
-                                    Features
-                                </a>
-                            </li>
+                            {navigationItems.map(({ id, label }) => (
+                                <li key={id}>
+                                    <a
+                                        href={`#${id}`}
+                                        onClick={() => setActiveSection(id)}
+                                        className={`font-primary text-[15px] font-medium transition-colors duration-200 ${activeSection === id ? "text-[#0B60EA]" : "text-[#65758B] hover:text-[#0B60EA]"}`}
+                                    >
+                                        {label}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </nav>
                     <div className="flex items-center space-x-4">
@@ -99,7 +93,68 @@ function Navbar() {
                         </div>
                     </div>
                 </div>
+                <button
+                    type="button"
+                    className="text-primary cursor-pointer rounded-md p-2 md:hidden"
+                    aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                    aria-expanded={isMenuOpen}
+                    aria-controls="mobile-navigation"
+                    onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
+                        {isMenuOpen ? (
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M6 18 18 6M6 6l12 12"
+                            />
+                        ) : (
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M4 6h16M4 12h16M4 18h16"
+                            />
+                        )}
+                    </svg>
+                </button>
             </div>
+            {isMenuOpen && (
+                <nav
+                    id="mobile-navigation"
+                    className="mt-4 border-t border-[#E7ECF2] pt-3 md:hidden"
+                >
+                    <ul className="flex flex-col gap-1">
+                        {navigationItems.map(({ id, label }) => (
+                            <li key={id}>
+                                <a
+                                    href={`#${id}`}
+                                    onClick={() => {
+                                        setActiveSection(id);
+                                        setIsMenuOpen(false);
+                                    }}
+                                    className={`font-primary block rounded-lg px-3 py-2.5 text-[15px] font-medium transition-colors duration-200 ${activeSection === id ? "bg-[#EEF4FF] text-[#0B60EA]" : "text-[#65758B] hover:bg-[#F5F7FA] hover:text-[#0B60EA]"}`}
+                                >
+                                    {label}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                    <Link
+                        to="/create-cv"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="font-primary mt-3 block rounded-lg bg-[#0B60EA] px-4 py-2.5 text-center text-[15px] font-medium text-white transition duration-300 hover:bg-[#2470EC]"
+                    >
+                        Create CV
+                    </Link>
+                </nav>
+            )}
         </header>
     );
 }

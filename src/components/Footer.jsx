@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 function Footer() {
     return (
-        <footer className="mt-40 bg-[#0F0F0F] px-36">
-            <div className="justify-items-center pt-18 pb-14">
-                <div className="w-140 space-y-3.5">
+        <footer className="mt-24 bg-[#0F0F0F] px-5 sm:px-8 lg:mt-40 lg:px-16 xl:px-36">
+            <div className="justify-items-center pt-12 pb-10 sm:pt-18 sm:pb-14">
+                <div className="w-full max-w-140 space-y-3.5">
                     <h3 className="font-primary text-center text-3xl font-bold tracking-tight text-white">
                         CV Builder
                     </h3>
@@ -13,7 +13,7 @@ function Footer() {
                         hanya berjalan di browser dan tetap berada di perangkat pengguna.
                     </p>
                 </div>
-                <div className="mt-12 flex space-x-6">
+                <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 sm:mt-12">
                     <a
                         href="#steps"
                         className="font-primary text-sm text-[#BFBFBF] transition duration-300 hover:text-white"
@@ -40,7 +40,7 @@ function Footer() {
                     </a>
                 </div>
             </div>
-            <div className="flex justify-between border-t border-[#474747] pt-7 pb-7">
+            <div className="flex flex-col items-center gap-5 border-t border-[#474747] pt-6 pb-6 text-center sm:flex-row sm:justify-between sm:pt-7 sm:pb-7 sm:text-left">
                 <p className="font-primary text-sm text-[#BFBFBF]">
                     ©2026 CV Builder. Developed by Abdul Rasyid.
                 </p>

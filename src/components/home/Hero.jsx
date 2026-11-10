@@ -7,12 +7,12 @@ function Hero() {
         <section
             id="home"
             className={cn(
-                "mt-20 flex scroll-mt-40 justify-between px-36",
-                "space-x-10 pb-20",
+                "mt-10 flex flex-col gap-10 scroll-mt-40 px-5 pb-12",
+                "sm:px-8 lg:mt-20 lg:flex-row lg:justify-between lg:space-x-10 lg:px-16 lg:pb-20 xl:px-36",
                 "shadow-[0_1px_4px_rgba(18,24,29,0.05)]",
             )}
         >
-            <div className="w-150">
+            <div className="w-full lg:w-150">
                 <p
                     className={cn(
                         "inline-block",
@@ -24,15 +24,15 @@ function Hero() {
                 >
                     ✨ CV profesional lebih mudah
                 </p>
-                <h1 className="text-primary font-primary mt-18 text-[56px] leading-17 font-semibold tracking-tight">
+                <h1 className="text-primary font-primary mt-8 text-4xl leading-tight font-semibold tracking-tight sm:text-5xl lg:mt-18 lg:text-[56px] lg:leading-17">
                     Bangun CV profesional anda secara gratis
                 </h1>
-                <p className="font-primary mt-9 text-base leading-7 font-normal text-[#55636B]">
+                <p className="font-primary mt-6 text-base leading-7 font-normal text-[#55636B] lg:mt-9">
                     CV Builder adalah website untuk menghasilkan CV tanpa proses rumit. Informasi
                     yang anda berikan bersifat pribadi dan tidak disimpan. Wujudkan CV anda dengan
                     mengisi data dan unduh dengan pdf.{" "}
                 </p>
-                <div className="mt-10">
+                <div className="mt-8 lg:mt-10">
                     <Link
                         to="/create-cv"
                         className={cn(
@@ -65,8 +65,8 @@ function Hero() {
                     </Link>
                 </div>
             </div>
-            <div className="self-center">
-                <img src={heroImage} alt="Hero Image" className="w-124" />
+            <div className="w-full max-w-124 self-center">
+                <img src={heroImage} alt="Hero Image" className="w-full" />
             </div>
         </section>
     );
